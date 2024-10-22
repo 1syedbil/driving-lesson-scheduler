@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "drivingLessonScheduler", "drivingLessonScheduler.csproj", "{66091A8E-A735-4172-A5F0-94F2B4E488DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66091A8E-A735-4172-A5F0-94F2B4E488DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66091A8E-A735-4172-A5F0-94F2B4E488DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66091A8E-A735-4172-A5F0-94F2B4E488DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66091A8E-A735-4172-A5F0-94F2B4E488DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AF7AFA2-C789-41AC-954C-E62F77AC4B48}
+	EndGlobalSection
+EndGlobal
