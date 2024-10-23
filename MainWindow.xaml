@@ -8,32 +8,31 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Label x:Name="instructor_label" Content="Select an instructor:" Height="27" VerticalAlignment="Top" Margin="22,35,641,0"/>
-        <ComboBox x:Name="instructor_choices" HorizontalAlignment="Left" Margin="197,37,0,0" VerticalAlignment="Top" Width="120">
+        <Label x:Name="instructor_label" Content="Select an instructor:" Height="27" VerticalAlignment="Top" Margin="409,22,254,0"/>
+        <ComboBox x:Name="instructor_choices" HorizontalAlignment="Left" Margin="584,24,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem x:Name="noInstructorSelected" Content="No Selection" IsSelected="True"/>
             <ComboBoxItem x:Name="instructor1" Content="Instructor 1"/>
             <ComboBoxItem x:Name="instructor2" Content="Indtructor 2" />
         </ComboBox>
 
-        <Label x:Name="lesson_label" Content="Select a lesson type:" Height="27" VerticalAlignment="Top" Margin="22,71,641,0"/>
-        <ComboBox x:Name="lesson_choices" HorizontalAlignment="Left" Margin="197,73,0,0" VerticalAlignment="Top" Width="120">
+        <Label x:Name="lesson_label" Content="Select a lesson type:" Height="27" VerticalAlignment="Top" Margin="409,58,254,0"/>
+        <ComboBox x:Name="lesson_choices" HorizontalAlignment="Left" Margin="584,60,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem x:Name="noLessonSelected" Content="No Selection" IsSelected="True"/>
             <ComboBoxItem x:Name="lessonType1" Content="BDE Lesson"/>
             <ComboBoxItem x:Name="lessonType2" Content="Individual Lesson"/>
             <ComboBoxItem x:Name="lessonType3" Content="G2/G Road Test Package"/>
         </ComboBox>
 
-        <Label x:Name="studName_label" Content="Enter the student's name:" Height="27" VerticalAlignment="Top" Margin="22,103,618,0"/>
-        <TextBox x:Name="studNameInput" HorizontalAlignment="Left" Margin="197,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="submitName" Content="Enter" HorizontalAlignment="Left" Margin="337,107,0,0" VerticalAlignment="Top" Height="19" Width="51"/>
+        <Label x:Name="studName_label" Content="Enter the student's name:" Height="27" VerticalAlignment="Top" Margin="409,90,231,0"/>
+        <TextBox x:Name="studNameInput" HorizontalAlignment="Left" Margin="584,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="submitName" Content="Search" HorizontalAlignment="Left" Margin="724,94,0,0" VerticalAlignment="Top" Height="19" Width="51"/>
 
-        <Label x:Name="phoneNum_label" Content="Enter phone number:" HorizontalAlignment="Left" Margin="22,135,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="phoneNumInput" HorizontalAlignment="Left" Margin="197,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="submitPhoneNum" Content="Enter" HorizontalAlignment="Left" Margin="337,138,0,0" VerticalAlignment="Top" Height="19" Width="51"/>
+        <Label x:Name="phoneNum_label" Content="Enter phone number:" HorizontalAlignment="Left" Margin="409,122,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="phoneNumInput" HorizontalAlignment="Left" Margin="584,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
-        <Label x:Name="lessonDate_label" Content="Select the date of the lesson:" HorizontalAlignment="Left" Margin="22,166,0,0" VerticalAlignment="Top"/>
-        <Calendar x:Name="lessonDateSelection" HorizontalAlignment="Left" Margin="197,166,0,0" VerticalAlignment="Top" Height="155" Width="176" IsTodayHighlighted="False"/>
-        <Button x:Name="submitLesson" Content="Submit" HorizontalAlignment="Left" Margin="30,338,0,0" VerticalAlignment="Top" Height="28" Width="122" Click="submitLesson_Click"/>
+        <Label x:Name="lessonDate_label" Content="Select the date of the lesson:" HorizontalAlignment="Left" Margin="409,153,0,0" VerticalAlignment="Top"/>
+        <Calendar x:Name="lessonDateSelection" HorizontalAlignment="Left" Margin="584,153,0,0" VerticalAlignment="Top" Height="155" Width="176" IsTodayHighlighted="False"/>
+        <Button x:Name="submitLesson" Content="Submit" HorizontalAlignment="Left" Margin="417,325,0,0" VerticalAlignment="Top" Height="28" Width="122" Click="submitLesson_Click"/>
 
     </Grid>
 </Window>

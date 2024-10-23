@@ -31,21 +31,29 @@ namespace drivingLessonScheduler
         private void submitLesson_Click(object sender, RoutedEventArgs e)
         {
             string emailSender = "continentalautomessage@gmail.com";
+            string messageBody = "Hello " + instructor1.Content.ToString() + ",<br>You have a " + lessonType1.Content.ToString() + " with " + studNameInput.Text + " on, " + lessonDateSelection.SelectedDate.ToString() + ". Their phone number is, " + phoneNumInput.Text + ".";
             string emailReceiver = null;
-            string password = File.ReadAllText("gmail.txt");
+
             if (instructor1.IsSelected)
             {
                 emailReceiver = "1syedbil@gmail.com";
             }
 
-            MailMessage lessonReminder = new MailMessage();
-            lessonReminder.To.Add(emailReceiver);
-            lessonReminder.From = new MailAddress(emailSender);
-            lessonReminder.Body = "Hello " + instructor1.Content.ToString() + "<br>You have a lesson with " + studNameInput.Text + " on, " + lessonDateSelection.SelectedDate.ToString() + ".";
-            lessonReminder.Subject = "New Lesson Scheduled";
-            lessonReminder.IsBodyHtml = true;
+            SendEmail(emailSender, emailReceiver, messageBody);
+        }
 
+        private void SendEmail(string emailSender, string emailReceiver, string messageBody)
+        {
+            string password = File.ReadAllText("gmail.txt");
+            MailMessage email = new MailMessage();
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+
+            email.To.Add(emailReceiver);
+            email.From = new MailAddress(emailSender);
+            email.Body = messageBody;
+            email.Subject = "New Lesson Scheduled";
+            email.IsBodyHtml = true;
+
             smtpClient.EnableSsl = true;
             smtpClient.Port = 587;
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -53,7 +61,7 @@ namespace drivingLessonScheduler
 
             try
             {
-                smtpClient.Send(lessonReminder);
+                smtpClient.Send(email);
                 MessageBox.Show("Email has been sent.", "Success!", MessageBoxButton.OK);
             }
             catch (Exception ex)
