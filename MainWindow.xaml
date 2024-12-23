@@ -8,31 +8,43 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Label x:Name="instructor_label" Content="Select an instructor:" Height="27" VerticalAlignment="Top" Margin="409,22,254,0"/>
-        <ComboBox x:Name="instructor_choices" HorizontalAlignment="Left" Margin="584,24,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem x:Name="noInstructorSelected" Content="No Selection" IsSelected="True"/>
-            <ComboBoxItem x:Name="instructor1" Content="Instructor 1"/>
-            <ComboBoxItem x:Name="instructor2" Content="Indtructor 2" />
-        </ComboBox>
+        <Grid x:Name="lessonForm">
+            <Label x:Name="instructor_label" Content="Select an instructor:" Height="27" VerticalAlignment="Top" Margin="217,39,446,0"/>
+            <ComboBox x:Name="instructor_choices" HorizontalAlignment="Left" Margin="392,41,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem x:Name="noInstructorSelected" Content="No Selection" IsSelected="True"/>
+                <ComboBoxItem x:Name="instructor1" Content="Instructor 1"/>
+                <ComboBoxItem x:Name="instructor2" Content="Indtructor 2" />
+            </ComboBox>
 
-        <Label x:Name="lesson_label" Content="Select a lesson type:" Height="27" VerticalAlignment="Top" Margin="409,58,254,0"/>
-        <ComboBox x:Name="lesson_choices" HorizontalAlignment="Left" Margin="584,60,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem x:Name="noLessonSelected" Content="No Selection" IsSelected="True"/>
-            <ComboBoxItem x:Name="lessonType1" Content="BDE Lesson"/>
-            <ComboBoxItem x:Name="lessonType2" Content="Individual Lesson"/>
-            <ComboBoxItem x:Name="lessonType3" Content="G2/G Road Test Package"/>
-        </ComboBox>
+            <Label x:Name="lesson_label" Content="Select a lesson type:" Height="27" VerticalAlignment="Top" Margin="217,75,446,0"/>
+            <ComboBox x:Name="lesson_choices" HorizontalAlignment="Left" Margin="392,77,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem x:Name="noLessonSelected" Content="No Selection" IsSelected="True"/>
+                <ComboBoxItem x:Name="lessonType1" Content="BDE Lesson"/>
+                <ComboBoxItem x:Name="lessonType2" Content="Individual Lesson"/>
+                <ComboBoxItem x:Name="lessonType3" Content="G2/G Road Test Package"/>
+            </ComboBox>
 
-        <Label x:Name="studName_label" Content="Enter the student's name:" Height="27" VerticalAlignment="Top" Margin="409,90,231,0"/>
-        <TextBox x:Name="studNameInput" HorizontalAlignment="Left" Margin="584,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="submitName" Content="Search" HorizontalAlignment="Left" Margin="724,94,0,0" VerticalAlignment="Top" Height="19" Width="51"/>
+            <Label x:Name="studName_label" Content="Enter the student's name:" Height="27" VerticalAlignment="Top" Margin="217,107,423,0"/>
+            <TextBox x:Name="studNameInput" HorizontalAlignment="Left" Margin="392,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="submitName" Content="Search" HorizontalAlignment="Left" Margin="532,111,0,0" VerticalAlignment="Top" Height="19" Width="51"/>
 
-        <Label x:Name="phoneNum_label" Content="Enter phone number:" HorizontalAlignment="Left" Margin="409,122,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="phoneNumInput" HorizontalAlignment="Left" Margin="584,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="phoneNum_label" Content="Enter phone number:" HorizontalAlignment="Left" Margin="217,139,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="phoneNumInput" HorizontalAlignment="Left" Margin="392,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
-        <Label x:Name="lessonDate_label" Content="Select the date of the lesson:" HorizontalAlignment="Left" Margin="409,153,0,0" VerticalAlignment="Top"/>
-        <Calendar x:Name="lessonDateSelection" HorizontalAlignment="Left" Margin="584,153,0,0" VerticalAlignment="Top" Height="155" Width="176" IsTodayHighlighted="False"/>
-        <Button x:Name="submitLesson" Content="Submit" HorizontalAlignment="Left" Margin="417,325,0,0" VerticalAlignment="Top" Height="28" Width="122" Click="submitLesson_Click"/>
+            <Label x:Name="pickupAddress_label" Content="Enter the pickup address:" Height="27" VerticalAlignment="Top" Margin="217,170,423,0"/>
+            <TextBox x:Name="pickupAddressInput" HorizontalAlignment="Left" Margin="392,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+            <Label x:Name="lessonDate_label" Content="Select the date of the lesson:" HorizontalAlignment="Left" Margin="217,207,0,0" VerticalAlignment="Top"/>
+            <Calendar x:Name="lessonDateSelection" HorizontalAlignment="Left" Margin="392,207,0,0" VerticalAlignment="Top" Height="155" Width="176" IsTodayHighlighted="False"/>
+            <Button x:Name="submitLesson" Content="Submit" HorizontalAlignment="Left" Margin="224,373,0,0" VerticalAlignment="Top" Height="28" Width="122" Click="submitLesson_Click"/>
+        </Grid>
+
+        <Grid Name="loadingOverlay" Background="#80000000" Visibility="Collapsed" IsHitTestVisible="False">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Sending Email..." Foreground="White" FontSize="20" HorizontalAlignment="Center" />
+                <ProgressBar IsIndeterminate="True" Width="200" Height="20" Margin="10" />
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>

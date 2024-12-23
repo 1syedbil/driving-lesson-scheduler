@@ -42,32 +42,55 @@ namespace drivingLessonScheduler
             SendEmail(emailSender, emailReceiver, messageBody);
         }
 
-        private void SendEmail(string emailSender, string emailReceiver, string messageBody)
+        private async Task SendEmail(string emailSender, string emailReceiver, string messageBody)
         {
             string password = File.ReadAllText("gmail.txt");
-            MailMessage email = new MailMessage();
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-
-            email.To.Add(emailReceiver);
-            email.From = new MailAddress(emailSender);
-            email.Body = messageBody;
-            email.Subject = "New Lesson Scheduled";
-            email.IsBodyHtml = true;
-
-            smtpClient.EnableSsl = true;
-            smtpClient.Port = 587;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.Credentials = new NetworkCredential(emailSender, password);
+            MailMessage email = CreateMessage(emailReceiver, emailSender, messageBody);
+            MailMessage text = CreateMessage("6476680648@txt.bell.ca", emailSender, messageBody);
+            SmtpClient smtpClient1 = CreateClient(emailSender, password);
+            SmtpClient smtpClient2 = CreateClient(emailSender, password);
 
             try
             {
-                smtpClient.Send(email);
+                lessonForm.Visibility = Visibility.Collapsed;
+                loadingOverlay.Visibility = Visibility.Visible;
+                await smtpClient1.SendMailAsync(email);
+                await smtpClient2.SendMailAsync(text);
+                loadingOverlay.Visibility = Visibility.Collapsed;
+                lessonForm.Visibility = Visibility.Visible;
                 MessageBox.Show("Email has been sent.", "Success!", MessageBoxButton.OK);
             }
             catch (Exception ex)
             {
+                loadingOverlay.Visibility = Visibility.Collapsed;
+                lessonForm.Visibility = Visibility.Visible;
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private MailMessage CreateMessage(string emailReceiver, string emailSender, string messageBody)
+        {
+            MailMessage message = new MailMessage();
+
+            message.To.Add(emailReceiver);
+            message.From = new MailAddress(emailSender);
+            message.Body = messageBody;
+            message.Subject = "New Lesson Scheduled";
+            message.IsBodyHtml = true;
+
+            return message;
+        }
+
+        private SmtpClient CreateClient(string emailSender, string password)
+        {
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+
+            client.EnableSsl = true;
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.Credentials = new NetworkCredential(emailSender, password);
+
+            return client;
         }
     }
 }
